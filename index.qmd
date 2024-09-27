@@ -1,4 +1,22 @@
 ---
-title: "emmabeamitchell.github.io"
+#title: "Emma Bea Mitchell"
+image: Emma_Mitchell_headshot.jpeg
+about:
+  template: jolla
+  image-shape: rounded
+  image-width: 15em
+  links: 
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/emma-bea-mitchell
+      target: _blank
+    - text: GitHub
+      href: https://github.com/emmabeamitchell
+      target: _blank
+    - text: Email
+      href: mailto:emmamitchell@bren.ucsb.edu
+      target: _blank
 ---
+
+I'm an Environmental Data Science Master’s student at the Bren School of Environmental Science and Management at UCSB. I graduated from the University of Redlands in 2022, where she combined three different programs to create a personalized major in Environmental Science, Policy and Justice. I  will continue pursuing her passion of studying the intersection of humans and the environment by learning to utilize the power of computer programming to examine relationships between areas many look at as unrelated. In my career, I hope to use data science to communicate and help repair the harmful impacts of dangerous environmental decisions on people and the environment. 
+
 
