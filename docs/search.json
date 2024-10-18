@@ -4,13 +4,34 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "some text goes here"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Emma Bea Mitchell",
     "section": "",
-    "text": "I’m an Environmental Data Science Master’s student at the Bren School of Environmental Science and Management at UCSB. I graduated from the University of Redlands in 2022, where she combined three different programs to create a personalized major in Environmental Science, Policy and Justice. I will continue pursuing her passion of studying the intersection of humans and the environment by learning to utilize the power of computer programming to examine relationships between areas many look at as unrelated. In my career, I hope to use data science to communicate and help repair the harmful impacts of dangerous environmental decisions on people and the environment."
+    "text": "I’m an Environmental Data Science Master student at the Bren School of Environmental Science and Management at UCSB. I graduated from the University of Redlands in 2022, where I majored in Environmental Science, Policy and Justice. I am following my passion of Environmental Justice by learning to utilize the power of computer programming to communicate and help repair the harmful impacts of dangerous environmental decisions on people and the environment."
+  },
+  {
+    "objectID": "delete-later/practice.html",
+    "href": "delete-later/practice.html",
+    "title": "Here is my level one header",
+    "section": "",
+    "text": "Here is my level one header\nHere is my first paragraph\nHere is my second paragraph, where you can read more about MEDS.\nThis is very important text!"
+  },
+  {
+    "objectID": "about.html#what-i-do-for-work",
+    "href": "about.html#what-i-do-for-work",
+    "title": "About",
+    "section": "",
+    "text": "some text goes here"
+  },
+  {
+    "objectID": "about.html#what-i-do-for-fun",
+    "href": "about.html#what-i-do-for-fun",
+    "title": "About",
+    "section": "What I do for fun",
+    "text": "What I do for fun\n\nhere is some more text"
   }
 ]

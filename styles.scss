@@ -1,0 +1,53 @@
+/*-- scss:defaults --*/
+
+// import google fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Create font Variables
+$nunito: "Nunito", serif;
+
+
+// colors
+$englishviolet: #413C58;
+$dun: #DBCFBB;
+$blush: #CA6680;
+$hookersgreen: #517664;
+$softorange: #E9B44C;
+$softred: #EF6F6C;
+
+// Quarto Sass Variables
+$body-bg:$dun;
+$navbar-bg:$blush;
+$navbar-fg:$englishviolet;
+$link-color:$englishviolet;
+
+/*-- scss:rules --*/
+
+//h1, h2, h3, h4, h5, h6 {
+ // font-family: $nunito;
+//}
+
+
+h1, h2 {
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.title{
+  color: $hookersgreen;
+}
+
+
+
+.center-text{
+  text-align: center;
+}
+
+.red-text{
+  color: $softred;
+}
+
+.navbar-brand img{
+  max-height: 50px;
+  width: auto;
+}
