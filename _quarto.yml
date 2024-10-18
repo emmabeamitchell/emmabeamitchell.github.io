@@ -4,19 +4,26 @@ project:
   
 website:
   title: "Emma Bea Mitchell"
+  favicon: images/emma-mitchell-logo.png
   navbar:
-    left:
+    title: false
+    logo: images/emma-mitchell-logo.png
+    logo-alt: "logo"
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
       - href: resources.qmd
         text: Resources
-      
+  page-footer:
+    background: light
+    left: Copyright 2024, Emma Bea Mitchell
+    right: This website is built with {{< fa  brands github title="the octocat github icon" >}}
 
 format:
   html:
-    theme: vapor
-    css: styles.css
+    theme: styles.scss
+    mainfont: Volkhov
     toc: false
     page-layout: full
 
