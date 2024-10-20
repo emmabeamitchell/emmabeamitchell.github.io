@@ -15,6 +15,7 @@ website:
       - about.qmd
       - href: resources.qmd
         text: Resources
+      - posts.qmd
   page-footer:
     background: light
     left: Copyright 2024, Emma Bea Mitchell
