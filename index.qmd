@@ -14,14 +14,15 @@ about:
       icon: github
       href: https://github.com/emmabeamitchell
       target: _blank
-    - text: Email
-      icon: envelope
-      href: mailto:emmamitchell@bren.ucsb.edu
-      target: _blank
     - text: Goodreads
       icon: goodreads
       href: https://www.goodreads.com/user/show/21705329-emma-mitchell
       target: _blank
+    - text: Email
+      icon: envelope
+      href: mailto:emmamitchell@bren.ucsb.edu
+      target: _blank
+
 ---
 
 I'm an Environmental Data Science Master student at the Bren School of Environmental Science and Management at UCSB. I graduated from the University of Redlands in 2022, where I majored in Environmental Science, Policy and Justice. I am following my Environmental Justice passion by learning to utilize the power of computer programming to communicate and help repair the harmful impacts of dangerous environmental decisions on people and the environment. 
