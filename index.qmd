@@ -1,5 +1,5 @@
 ---
-#title: "Emma Bea Mitchell"
+title: "Emma Bea Mitchell"
 image: potential_replacement_headshot_crop.jpg
 about:
   template: jolla
