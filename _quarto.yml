@@ -13,8 +13,6 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - href: resources.qmd
-        text: Resources
       - posts.qmd
   page-footer:
     background: light

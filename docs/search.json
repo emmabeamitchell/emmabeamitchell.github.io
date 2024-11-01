@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "some text goes here"
+    "text": "I’m a full time Master’s student in Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. In undergrad, I majored in Environmental Science, Policy, and Justice at the Johnston Center for Integrative Studies at the University of Redlands. I created my personalized major because I loved environmental studies and social activism. I took classes on anything from Environmental Ethics to History of Disability to Biodiversity to Immigration Politics and Policy. I loved having the freedom to choose what I wanted to learn and pursue. In undergrad I also studied abroad in Copenhagen where I had the chance to study ice cores and glacial dating, as well as learn about the geopolitics of Denmark. My passion and excitement about environmental policy and environmental justice drove me to go back to school. I truly believe that data science is needed and connected to all disciplines, and in learning data science skills I hope to begin to do my part to rectify the damage we have done to our Earth and the people living there."
   },
   {
     "objectID": "index.html",
@@ -32,7 +32,7 @@
     "href": "about.html#what-i-do-for-fun",
     "title": "About",
     "section": "What I do for fun",
-    "text": "What I do for fun\n\nhere is some more text"
+    "text": "What I do for fun"
   },
   {
     "objectID": "posts.html",
@@ -40,5 +40,33 @@
     "title": "Blog",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "about.html#what-do-i-like-to-do",
+    "href": "about.html#what-do-i-like-to-do",
+    "title": "About Me",
+    "section": " What do I like to do?",
+    "text": "What do I like to do?"
+  },
+  {
+    "objectID": "about.html#what-inspires-me",
+    "href": "about.html#what-inspires-me",
+    "title": "About Me",
+    "section": " What inspires me?",
+    "text": "What inspires me?"
+  },
+  {
+    "objectID": "about.html#who-am-i",
+    "href": "about.html#who-am-i",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m a full time Master’s student in Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. In undergrad, I majored in Environmental Science, Policy, and Justice at the Johnston Center for Integrative Studies at the University of Redlands. I created my personalized major because I loved environmental studies and social activism. I took classes on anything from Environmental Ethics to History of Disability to Biodiversity to Immigration Politics and Policy. I loved having the freedom to choose what I wanted to learn and pursue. In undergrad I also studied abroad in Copenhagen where I had the chance to study ice cores and glacial dating, as well as learn about the geopolitics of Denmark. My passion and excitement about environmental policy and environmental justice drove me to go back to school. I truly believe that data science is needed and connected to all disciplines, and in learning data science skills I hope to begin to do my part to rectify the damage we have done to our Earth and the people living there."
+  },
+  {
+    "objectID": "about.html#but-who-am-i-really",
+    "href": "about.html#but-who-am-i-really",
+    "title": "About Me",
+    "section": " But who am I really?",
+    "text": "But who am I really?\nOutside of my love for the environment and data science, my main hobby is reading ( you know you’re a nerd when your two passions are coding and reading 🤓). Apart from staring at a screen or a book, I love to kayak, swim, paddle board, and hike. I am originally from Seattle, WA where I was surrounded by the vast nature of the Cascades, the Olympics, and the Puget Sound.You haven’t known beauty until you see the Cascades up close. I grew up going to summer camps on islands, raising salmon in school, and cannon-balling off diving boards in my neighborhood lake. In 2024 I moved to Santa Barbara to pursue my Master’s degree, where (thank goodness) I am still surrounded by mountains and ocean and my home is full of books."
   }
 ]

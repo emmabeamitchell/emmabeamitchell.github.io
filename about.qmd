@@ -1,12 +1,15 @@
 ---
-title: "About"
+title: "About Me"
+subtitle: "a bit more about me and the things I love"
+title-block-banner: true
 ---
 
-## What I do for work
 
-<p class="title">some text goes here<p>
+## {{< fa id-card title="ID card" >}} Who am I?
 
-## What I do for fun
+I'm a full time Master's student in Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. In undergrad, I majored in Environmental Science, Policy, and Justice at the Johnston Center for Integrative Studies at the University of Redlands. I created my personalized major because I loved environmental studies and social activism. I took classes on anything from Environmental Ethics to History of Disability to Biodiversity to Immigration Politics and Policy. I loved having the freedom to choose what I wanted to learn and pursue. In undergrad I also studied abroad in Copenhagen where I had the chance to study ice cores and glacial dating, as well as learn about the geopolitics of Denmark. My passion and excitement about environmental policy and environmental justice drove me to go back to school. I truly believe that data science is needed and connected to all disciplines, and in learning data science skills I hope to begin to do my part to rectify the damage we have done to our Earth and the people living there. 
 
-<p class="title">here is some more text<p>
+## {{< fa book-open-reader title="Icon of person reading a book" >}} But who am I really?
+
+Outside of my love for the environment and data science, my main hobby is reading ( you know you're a nerd when your two passions are coding and reading 🤓). Apart from staring at a screen or a book, I love to kayak, swim, paddle board, and hike. I am originally from Seattle, WA where I was surrounded by the vast nature of the Cascades, the Olympics, and the Puget Sound.You haven't known beauty until you see the Cascades up close. I grew up going to summer camps on islands, raising salmon in school, and cannon-balling off diving boards in my neighborhood lake. In 2024 I moved to Santa Barbara to pursue my Master's degree, where (thank goodness) I am still surrounded by mountains and ocean and my home is full of books. 
 
