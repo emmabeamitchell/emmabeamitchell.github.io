@@ -14,10 +14,6 @@ about:
       icon: github
       href: https://github.com/emmabeamitchell
       target: _blank
-    - text: Goodreads
-      icon: goodreads
-      href: https://www.goodreads.com/user/show/21705329-emma-mitchell
-      target: _blank
     - text: Email
       icon: envelope
       href: mailto:emmamitchell@bren.ucsb.edu
