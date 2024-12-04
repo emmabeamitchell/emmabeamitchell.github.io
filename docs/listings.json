@@ -1,6 +1,8 @@
 [
   {
     "listing": "/posts.html",
-    "items": []
+    "items": [
+      "/posts/Thomas_fire_post/Thomas_fire_post.html"
+    ]
   }
 ]
