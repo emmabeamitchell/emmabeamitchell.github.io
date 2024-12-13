@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emma Mitchell">
+<meta name="dcterms.date" content="2024-12-12">
+<meta name="description" content="A first stab at statistically analyzing the resource curse">
+
+<title>Emma Bea Mitchell - Natural Resource Wealth and Corruption</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/emma-mitchell-logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/emma-mitchell-logo.png" alt="logo" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Natural Resource Wealth and Corruption</h1>
+                  <div>
+        <div class="description">
+          A first stab at statistically analyzing the resource curse
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Stats</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">MEDS</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author column-page">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://emmabeamitchell.github.io/">Emma Mitchell</a> </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://ucsb-meds.github.io/">
+              Master of Environmental Data Science Program @ The Bren School (UCSB)
+              </a>
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta column-page">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 12, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+
+
+
+
+
+<p>Corruption is an issue in countries across the world. Government structures are complicated, intertwined, and often run behind closed doors. This makes it extremely difficult to solve. What are the main influences on a country’s corruption level? Is it even quantifiable? I was motivated by these questions to take a stab at a small piece of the corruption puzzle.</p>
+<p>In this post we attempt to answer the question <strong>does the percent of GDP from natural resources affect countries’ corruption levels?</strong></p>
+<p>My theory is that having natural resources that provide a large revenue source for a country could potentially invite corruption. Public officials may bribe gas, oil, or logging companies for a cut in the profit. Those companies may also bribe or attempt to coerce the government into larger sales or more land. Public officials may also prioritize company profits over public welfare, which has the potential to have large impacts on policy decisions that affect citizens.</p>
+<p>The theory that I am describing is a very simplified version of a well-studied and highly debated issue of <em>the resource curse</em>. Essentially natural resource wealth in countries (specifically developing countries) can lead to perverse effects on economic, social, and political well being. Case studies around the world have proved this to be true (although there is also case study evidence of the resource curse being “illusory”).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hypothesis: The percentage of GDP from natural resources has an effect on countries’ corruption levels</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Null hypothesis: The percent of GDP from natural resources has no effect on countries’ corruption levels</td>
+</tr>
+</tbody>
+</table>
+<p>Everyone wants to solve corruption, but it’s a lot easier said than done. Corruption is a complicated issue with far more influences than most researchers are able to analyze in years of study, and certainly more than I can analyze in this short post.</p>
+<p>My analysis plan is to create visualizations and linear models that can help us to examine the possibility of a significant correlation between the percent of GDP in a country that comes from natural resources versus our corruption perception index.</p>
+<ol type="1">
+<li>read in data and clean</li>
+<li>make preliminary plot</li>
+<li>run a linear model</li>
+<li>graph the best fit line</li>
+<li>analyze results</li>
+</ol>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<section id="corruption-perception-index" class="level3">
+<h3 class="anchored" data-anchor-id="corruption-perception-index">Corruption Perception Index</h3>
+<p><img src="https://images.transparencycdn.org/images/CPI2021_Map_EN_2022-01-24-142835_wbln.jpg" alt="Corruption Perception Index 2021 Map" width="500"></p>
+<p>Our data comes from two different sources. The first source is for our corruption level data. We used a dataset from <em>Transparency International</em>, an organization that works to fight corruption worldwide. The organization has many facets, including a think tank, a UNESCO consultant, and is involved in the UN.</p>
+<p>They created a corruption perceptions index, which measures levels of corruption in 180 countries around the world from 0 (highly corrupt) to 100 (very clean). Transparency International takes data from 13 sources, such as banks, think tanks, and research advisory firms around the world. Each of these organizations ask leading experts in their field multiple questions that can be used to gage corruption levels. Some sources only cover specific regions or continents, while others cover the majority of the world. Transparency International then takes the information and standardizes it on a scale of zero to one hundred,“this standardisation is done by subtracting the mean of each source in the baseline year from each country score and then dividing by the standard deviation of that source in the baseline year [and]… …transformed to the CPI scale by multiplying with the value of the CPI standard deviation in 2012 (20) and adding the mean of CPI in 2012 (45), so that the data set fits the CPI’s 0-100 scale” (CPI report short methodology 2021). They then calculate the average for each country to find their published score.</p>
+<section id="limitations-of-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-of-the-data">Limitations of the data</h4>
+<p>The data itself, as well as the way I use it comes with some caveats. Firstly, Transparency International uses varying organizations to get these scores, which in turn use varying methods to get their scores. Although the scores are then standardized, it is still not a completely equal comparison for every single country. In my statistical analysis, I use this corruption <strong>perception</strong> index as a true corruption index for each country. There are clearly limitations to what anyone can truly know about the country in their country, and this index simply measures perceptions for that very reason, but for the purposes of my calculations I treat these numbers as true and fair values. In order to simplify my analysis, I am also not including the standard errors for these values, which could potentially oversimplify the results of the index.</p>
+<p>Transparency International. (2021). 2021 Corruptions Perceptions Index. Transparency.org. https://www.transparency.org/en/cpi/2021.</p>
+</section>
+</section>
+<section id="percent-of-gdp-from-natural-resources" class="level3">
+<h3 class="anchored" data-anchor-id="percent-of-gdp-from-natural-resources">Percent of GDP from Natural Resources</h3>
+<p>The natural resource data comes from the World Bank Group, an organization with 189 member countries, working to give funds to low income countries. Their site also has a catalog of open data about economic development worldwide. The dataset we used was the “World Development Indicators: Contribution of natural resources to gross domestic product” table. I have used data from 2021 in order to have consistency in the year across the board.</p>
+<section id="limitations-of-the-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-of-the-data-1">Limitations of the data</h4>
+<p>Although this data is open source, we have no information about how these numbers were acquired. We trust at face value that this dataset is correct.</p>
+<p>World Development Indicators. The World Bank. (2015). Worldbank.org. https://wdi.worldbank.org/table/3.14#</p>
+</section>
+</section>
+<section id="set-up" class="level3">
+<h3 class="anchored" data-anchor-id="set-up">Set up:</h3>
+<div class="cell" data-quiet="true">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-quiet="true">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>corruption <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"Natural_resource_corruption"</span> ,<span class="st">"data"</span>, <span class="st">"2021_corruption.csv"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>natural_resources <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"Natural_resource_corruption"</span> ,<span class="st">"data"</span>, <span class="st">"natural_resources.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="clean-up-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="clean-up-the-data">Clean up the data</h3>
+<p>Our data comes from multiple sources. In order to join the corruption and natural resources datasets together, it’s crucial that we make sure that all the information is clean and lines up.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take our the rows that doesn't contain data from countries</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>natural_resources <span class="ot">&lt;-</span> natural_resources[<span class="dv">1</span><span class="sc">:</span><span class="dv">217</span>, ]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Join the data together</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>corrupt_resource <span class="ot">&lt;-</span> <span class="fu">full_join</span>(corruption, natural_resources, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Country / Territory"</span> <span class="ot">=</span> <span class="st">"Country"</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the country column for clarity and clean up names</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>corrupt_resource_clean <span class="ot">&lt;-</span> corrupt_resource <span class="sc">|&gt;</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"country"</span> <span class="ot">=</span> <span class="st">"Country / Territory"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the columns we're interested in</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>corrupt_resource_select <span class="ot">&lt;-</span> corrupt_resource_clean <span class="sc">|&gt;</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, iso3, cpi_score_2021,total_natural_resources_rents_percent_of_gdp, oil_rents_percent_of_gdp, natural_gas_rents_percent_of_gdp, coal_rents_percent_of_gdp, mineral_rents_percent_of_gdp, forest_rents_percent_of_gdp)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Change CPI score data to numeric so we can work with it</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>corrupt_resource_select<span class="sc">$</span>cpi_score_2021 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(corrupt_resource_select<span class="sc">$</span>cpi_score_2021)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Change total natural resource data to numeric as well</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>corrupt_resource_select<span class="sc">$</span>total_natural_resources_rents_percent_of_gdp <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(corrupt_resource_select<span class="sc">$</span>total_natural_resources_rents_percent_of_gdp)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: NAs introduced by coercion</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># exclude outliers</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>corrupt_resource_select <span class="ot">&lt;-</span> corrupt_resource_select <span class="sc">|&gt;</span> </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_natural_resources_rents_percent_of_gdp <span class="sc">&lt;=</span> <span class="dv">40</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(cpi_score_2021))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="make-a-preliminary-plot" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-preliminary-plot">Make a preliminary plot</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>first_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(corrupt_resource_select, <span class="fu">aes</span>(<span class="at">x=</span>total_natural_resources_rents_percent_of_gdp, <span class="at">y =</span> cpi_score_2021)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"percent of GDP from natural resources"</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"corruption perception index"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's affect on countries' corruption levels"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(first_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>At first glance, our data doesn’t really look correlated at all. But let’s dive a little deeper.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run linear regression summary</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(cpi_score_2021 <span class="sc">~</span> total_natural_resources_rents_percent_of_gdp, <span class="at">data =</span> corrupt_resource_select)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(lm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">cpi score 2021</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">CI</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">p</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">48.35</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">44.82&nbsp;–&nbsp;51.88</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>&lt;0.001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">total natural resources<br>
+rents percent of gdp</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.54</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.86&nbsp;–&nbsp;-0.23</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.001</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">153</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.072 / 0.066</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>There are a few numbers here that are of interest to us. First let’s look at the intercept and the total_natural_resources_rents_percent_of_gdp (the slope). According to our model, if our hypothetical country had no GDP resulting from natural resources, then the corruption level would be at 48. We could maybe buy this if we hadn’t looked at the graph, but when we look at our data points visually it looks like our intercept is really just halfway in between our huge cluster of points around zero that seem to be evenly dispersed on the y axis. When looking at the slope we can also see that it’s very small. Each percentage point increase in GDP results in a less than 1 index level decrease.</p>
+<p>The p-values for both our intercept and slope are very small. Our intercept is less than .001 (essentially zero for our purposes) and our slope has a p-value of .000106, also a very small number. Both are far below .05, the number needed for a value to be statistically significant. So if these values are both statistically significant, why do I still not trust that it’s meaningful?</p>
+<p>Let’s look at adjusted R squared value. It’s about 0.07. R squared is always a value from 0 to 1, where 0 means that the model explains essentially zero percent of the change in y, and 1 means that the model is the perfect fit and the variable explains 100 percent of the change in y. Our value is less than .1, essentially meaning that the percent of GDP from natural resources explains just over 7 percent of the corruption levels in countries. So our model is statistically significant but explains very little of corruption levels.</p>
+<p>This makes sense when we look at our graph with our best fit line. If we squint at the graph, we can <em>maybe</em> see a correlation, but it’s certainly a stretch. The graph, along with our linear model summary, makes us think that there is definitely omitted variable bias here.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>smooth_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(corrupt_resource_select, <span class="fu">aes</span>(<span class="at">x=</span>total_natural_resources_rents_percent_of_gdp, <span class="at">y =</span> cpi_score_2021)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"percent of GDP from natural resources"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"corruption perception index"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's affect on countries' corruption levels"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> lm)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(smooth_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-regroup-and-think-about-what-other-variables-could-be-contributing-to-corruption-levels." class="level3">
+<h3 class="anchored" data-anchor-id="lets-regroup-and-think-about-what-other-variables-could-be-contributing-to-corruption-levels.">Let’s regroup and think about what other variables could be contributing to corruption levels.</h3>
+<p>My new theory is that the type of government could be a major contributing factor in corruption levels. It’s possible that this is an interactive model. My theory is that democratic countries will have a much less steep negative slope because the percent of GDP from natural resources would have less of an effect on corruption. Elections keep officials much more accountable. On the other hand, autocracies might have a steeper negative slope, as more money coming from a country’s natural resource could lead to an increase in corruption as there is more money or resources that could be exploited. Let’s load in another dataset that has information on political regimes worldwide and test my theory.</p>
+<p>My new analysis plan is to add political regime type to my model as an interaction. We can then graph and analyze the data to see if there’s a correlation now that political regime type is added.</p>
+<ol type="1">
+<li>read in data and clean</li>
+<li>make interactive plot</li>
+<li>run a linear model</li>
+<li>analyze results</li>
+</ol>
+<section id="about-this-data" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-data">About this data</h4>
+<p>Our data comes from <em>Our World in Data</em>, a website dedicated to being an open source platform for data sets to be used by scientists and others to improve our world. The website is slowly funded by grants and donations, and is made to be a platform for all.</p>
+<p>Our specific data “Political Regime, 2021”, is a dataset of countries worldwide. They all get a designation of 0 through 3, which the political regime.</p>
+<ul>
+<li>0 represents closed autocracies, where “citizens do not have the right to either choose the chief executive of the government or the legislature through multi-party elections”</li>
+<li>1 represents electoral autocracies, where “citizens have the right to choose the chief executive and the legislature through multi-party elections; but they lack some freedoms, such as the freedoms of association or expression, that make the elections meaningful, free, and fair”</li>
+<li>2 represents electoral democracies, where ” citizens have the right to participate in meaningful, free and fair, and multi-party elections”</li>
+<li>3 represents liberal democracies, where “citizens have further individual and minority rights, are equal before the law, and the actions of the executive are constrained by the legislative and the courts”</li>
+</ul>
+<p>(all descriptions come from the dataset’s metadata) For clarity, I clean the data to change the numbers to the regime type</p>
+<p>The data comes from the Regimes of the World (RoW) data published by the Varieties of Democracy (V-Dem) project. Political scientists Anna Lührmann, Marcus Tannenberg, and Staffan Lindberg compiled assessments from anonymous experts in academia, media, or civil society to gage democracy levels.</p>
+</section>
+<section id="limitations-to-our-data" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-to-our-data">Limitations to our data</h4>
+<p>Democracy levels are mainly subjective. Although the data is as standardized as possible, subjectivity is impossible to avoid. People may have different ideas of civil freedoms or the voting in their country. The datasheet about the data does acknowledge this, although it’s impossible to completely fix. For our purposes here, I have chosen to take their political regime designations as objective truth.</p>
+<p>Political regime. (n.d.). Our World in Data. https://ourworldindata.org/grapher/political-regime?time=2021</p>
+<p>Herre, B. (2021, December 2). The “Regimes of the World” data: how do researchers identify which countries are democracies? Our World in Data. https://ourworldindata.org/regimes-of-the-world-data</p>
+<div class="cell" data-quiet="true">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>regime <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"Natural_resource_corruption"</span>, <span class="st">"data"</span>, <span class="st">"political-regime.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean column names</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>regime_clean <span class="ot">&lt;-</span> regime <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"country"</span> <span class="ot">=</span> <span class="st">"Entity"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace numeric values with descriptive labels</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>regime_clean <span class="ot">&lt;-</span> regime_clean <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">political_regime =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    political_regime <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"closed_autocracies"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    political_regime <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"electoral_autocracies"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    political_regime <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"electoral_democracies"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    political_regime <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"liberal_democracies"</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join with other dataframe</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>corrupt_nat_dem <span class="ot">&lt;-</span> <span class="fu">full_join</span>(corrupt_resource_select, regime_clean, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"iso3"</span> <span class="ot">=</span> <span class="st">"code"</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only rows and columns we're interested in</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>corrupt_nat_dem_select <span class="ot">&lt;-</span> corrupt_nat_dem[<span class="dv">1</span><span class="sc">:</span><span class="dv">180</span>, ] <span class="sc">|&gt;</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>country.y, <span class="sc">-</span>time, <span class="sc">-</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>regime_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(corrupt_nat_dem_select, <span class="fu">aes</span>(<span class="at">x =</span> total_natural_resources_rents_percent_of_gdp, <span class="at">y =</span> cpi_score_2021, <span class="at">color =</span> political_regime)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">xlab</span>(<span class="st">"percent of GDP from natural resources"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"corruption perception index"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's affect on countries' corruption levels"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Political regime"</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"closed autocracies"</span>, <span class="st">"electorial autocracies"</span>, <span class="st">"electoral democracies"</span>, <span class="st">"liberal democracies"</span>))</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(regime_plot)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Removed 27 rows containing non-finite outside the scale range</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">## (`stat_smooth()`).</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Removed 27 rows containing missing values or values outside the scale range</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="do">## (`geom_point()`).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now this isn’t the prettiest graph, but it’s good enough that we can see the lines of best fits by regime type and we can see where the actual data points fall to get an idea of the accuracy of our best fit line.</p>
+<p>We can see that the liberal democracies line is actually positive, which means that the as natural resource profit goes up, they have less and less corruption. Interestingly, electoral democracies and electoral autocracies seem to have very similar negative slopes. The closed autocracies seem to have a mostly flat slope that it very slightly positive.</p>
+<p>These results are pretty unexpected. Let’s take a look at the linear model summary to check out our numbers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(total_natural_resources_rents_percent_of_gdp <span class="sc">~</span> cpi_score_2021 <span class="sc">+</span> political_regime <span class="sc">+</span>cpi_score_2021<span class="sc">:</span>political_regime, <span class="at">data =</span> corrupt_nat_dem_select)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">total natural resources<br>
+rents percent of gdp</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">CI</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">p</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1.75</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-8.05&nbsp;–&nbsp;11.54</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.725</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">cpi score 2021</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.24</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.00&nbsp;–&nbsp;0.49</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.054</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">political regime<br>
+[electoral_autocracies]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">12.22</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.02&nbsp;–&nbsp;24.47</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.050</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">political regime<br>
+[electoral_democracies]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">12.21</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-2.05&nbsp;–&nbsp;26.48</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.093</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">political regime<br>
+[liberal_democracies]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-1.74</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-24.48&nbsp;–&nbsp;21.00</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.880</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">cpi score 2021 ×<br>
+political regime<br>
+[electoral_autocracies]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.38</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.70&nbsp;–&nbsp;-0.05</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.023</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">cpi score 2021 ×<br>
+political regime<br>
+[electoral_democracies]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.43</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.77&nbsp;–&nbsp;-0.08</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.016</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">cpi score 2021 ×<br>
+political regime<br>
+[liberal_democracies]</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.22</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.59&nbsp;–&nbsp;0.16</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.258</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">150</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.158 / 0.116</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>The first thing I notice when I look at our results are that most p-values are above .05, which makes them all statistically insignificant. Therefore we fail to reject the null hypothesis. The only one that is significant is the electoral autocracies, although because the other values are not statistically significant, it’s hard for me to trust the electoral autocracy coefficients independent of the other values. It makes sense to me that this interaction is insignificant, because the slopes we were getting were very surprising and didn’t make much logical sense to me. We cannot assume that any of the interaction trends we saw were not just due to chance.</p>
+</section>
+</section>
+<section id="morans-i" class="level3">
+<h3 class="anchored" data-anchor-id="morans-i">Moran’s I</h3>
+<p>It seems like adding in the political regime was not the omitted variable I was looking for. I’m starting to suspect that there may be some spatial clumping and autocorrelation going on here. Let’s perform the Moran’s I test and plot the results to test my new hypothesis.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the world dataset included in the spData library</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> spData<span class="sc">::</span>world</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Join world dataset with previous data</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>world_join <span class="ot">&lt;-</span> <span class="fu">full_join</span>(corrupt_resource_select, world, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"country"</span> <span class="ot">=</span> <span class="st">"name_long"</span>)) </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter dataset to remove all NAs in relevant columns</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>world_join <span class="ot">&lt;-</span> world_join <span class="sc">|&gt;</span> </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(geom)) <span class="sc">|&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(pop)) </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>world_join <span class="ot">&lt;-</span> world_join[<span class="dv">1</span><span class="sc">:</span><span class="dv">135</span>,]</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign name to linear model</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>world_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(cpi_score_2021 <span class="sc">~</span> total_natural_resources_rents_percent_of_gdp, <span class="at">data =</span> world_join)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign residual column</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>world_join<span class="sc">$</span>residual <span class="ot">&lt;-</span> <span class="fu">resid</span>(world_lm)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Make into sf object</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>world_join <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(world_join, </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">crs =</span> <span class="st">"EPSG:4326"</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sf_column_name =</span> <span class="st">'geom'</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Make into centroids</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>pts <span class="ot">&lt;-</span> <span class="fu">st_centroid</span>(<span class="fu">st_transform</span>(world_join, <span class="dv">4326</span>)) </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>pts <span class="ot">&lt;-</span> pts <span class="sc">|&gt;</span> </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(pop)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(geom))</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Find neighbors</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>world_join.nb <span class="ot">&lt;-</span> <span class="fu">dnearneigh</span>(pts, <span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">5000</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Add spatiral weights</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>world_join.lw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(world_join.nb, <span class="at">style =</span> <span class="st">"W"</span>, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Moran's I test</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>moran_test <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(world_join<span class="sc">$</span>residual, world_join.lw, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the Moran's I test results</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(moran_test)</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="do">##  Moran I test under randomisation</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="do">## data:  world_join$residual  </span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="do">## weights: world_join.lw    </span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="do">## Moran I statistic standard deviate = 6.8527, p-value = 3.624e-12</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: greater</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="do">## Moran I statistic       Expectation          Variance </span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="do">##      0.1284541112     -0.0074626866      0.0003933933</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot results</span></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>morans_plots <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> world, <span class="at">fill =</span> <span class="st">"lightgray"</span>, <span class="at">color =</span> <span class="st">"darkgray"</span>) <span class="sc">+</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> world_join, <span class="fu">aes</span>(<span class="at">fill =</span> residual, <span class="at">geometry =</span> geom)) <span class="sc">+</span> <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"darkblue"</span>, <span class="at">high =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">title =</span> <span class="st">"Moran's I"</span>,</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitude"</span>, </span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Latitude"</span> ) <span class="sc">+</span> </span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(morans_plots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Unfortunately, we had to omit a good amount of countries because all of our datasets did not match. Despite this, we can still see a pattern of autocorrelation in our data. We can see in Northern Europe and in the Middle East, there is almost a gradient of colors because of autocorrelation. Countries close to red countries seem to be closer to red themselves, while countries close to blue countries seem to be closer to blue themselves. Similar colors are also clumped together in South American and Africa. This tells us that one country’s corruption levels are affecting others around it.</p>
+</section>
+</section>
+<section id="summarizing-our-results" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-our-results">Summarizing our results</h2>
+<p>Our results are overall inconclusive. Our first linear model just looked at the percent of GDP from natural resources. There was no an obvious correlation from just looking at the data points on the graph, but our line of best fit revealed a negative slope, revealing that as the percent of GDP goes up, the corruption also goes up (a lower index number = more corruption). Although these results were statistically significant, the adjusted R squared value revealed that it only explained about nine percent of the corruption levels in countries around the world.</p>
+<p>My solution to the low R squared value was to add another variable, as it was quite likely we had omitted variable bias. I decided to add political regime type as our additional variable. I logically assumed that the regime type would have differing affects on the relationship. When I added in political regimes however, I saw that my results were no longer statistically significant.</p>
+<p>In an effort to explore what else could be contributing to corruption levels, I decided to try the Moran’s I test, which allows us to see if there is autocorrelation in our data. The answer was yes, there appears to be some. That means that countries’ corruption levels are being affected by the levels around it. Maybe stability in the surrounding countries bring stability into their neighbors’ countries. Maybe corruption spills over across borders. If we think about natural resources as well, they don’t follow political lines. Natural resources will probably be similar in neighboring countries. All of these factors lead to a need to examine further and account for this autocorrelation in our analysis.</p>
+<p>If I had more time I would have continued exploring more variables and use our results from Moran’s I to account for our autocorrelation issue. Developed versus developing country, overall GDP amount, and economic systems would all be interesting to analyze in relation to corruption and natural resources as well. I am also skeptical that a linear model is truly the correct model to be using in this situation, as corruption is very complex and probably not a completely linear issue.</p>
+<p>My next steps would be to use my Moran’s I calculations to go back and reanalyze my data, as well as add in additional factors that I believe could be relevant.</p>
+<p>Full acknowledgements:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use:</th>
+<th>Citation:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Resource curse information</td>
+<td>Ross, M. L. (2013). The Politics of the Resource Curse: A Review. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2342668</td>
+</tr>
+<tr class="even">
+<td>Natural resources data</td>
+<td>World Development Indicators. The World Bank. (2015). Worldbank.org. https://wdi.worldbank.org/table/3.14#</td>
+</tr>
+<tr class="odd">
+<td>Corruption index data</td>
+<td>Transparency International. (2021). 2021 Corruptions Perceptions Index. Transparency.org. https://www.transparency.org/en/cpi/2021.</td>
+</tr>
+<tr class="even">
+<td>Political regime data</td>
+<td>Political regime. (n.d.). Our World in Data. https://ourworldindata.org/grapher/political-regime?time=2021</td>
+</tr>
+<tr class="odd">
+<td>Political regime metadata</td>
+<td>Herre, B. (2021, December 2). The “Regimes of the World” data: how do researchers identify which countries are democracies? Our World in Data. https://ourworldindata.org/regimes-of-the-world-data</td>
+</tr>
+<tr class="even">
+<td>Reference course materials</td>
+<td>Max Czapanskiy. EDS 222 Statistics for Environmental Data Science graduate course at the Bren School of Environmental Science and Management at UCSB</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2024, Emma Bea Mitchell</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This website is built with <i class="fa-brands fa-github" title="the octocat github icon" aria-label="github"></i></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

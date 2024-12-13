@@ -1,0 +1,175 @@
+Entity,Code,Year,Political regime,time
+Afghanistan,AFG,2021,0,2021
+Albania,ALB,2021,2,2021
+Algeria,DZA,2021,1,2021
+Angola,AGO,2021,1,2021
+Argentina,ARG,2021,2,2021
+Armenia,ARM,2021,2,2021
+Australia,AUS,2021,3,2021
+Austria,AUT,2021,2,2021
+Azerbaijan,AZE,2021,1,2021
+Bahrain,BHR,2021,0,2021
+Bangladesh,BGD,2021,1,2021
+Barbados,BRB,2021,3,2021
+Belarus,BLR,2021,1,2021
+Belgium,BEL,2021,3,2021
+Benin,BEN,2021,1,2021
+Bhutan,BTN,2021,3,2021
+Bolivia,BOL,2021,2,2021
+Bosnia and Herzegovina,BIH,2021,2,2021
+Botswana,BWA,2021,2,2021
+Brazil,BRA,2021,2,2021
+Bulgaria,BGR,2021,2,2021
+Burkina Faso,BFA,2021,2,2021
+Burundi,BDI,2021,1,2021
+Cambodia,KHM,2021,1,2021
+Cameroon,CMR,2021,1,2021
+Canada,CAN,2021,3,2021
+Cape Verde,CPV,2021,2,2021
+Central African Republic,CAF,2021,1,2021
+Chad,TCD,2021,0,2021
+Chile,CHL,2021,3,2021
+China,CHN,2021,0,2021
+Colombia,COL,2021,2,2021
+Comoros,COM,2021,1,2021
+Congo,COG,2021,1,2021
+Costa Rica,CRI,2021,3,2021
+Cote d'Ivoire,CIV,2021,1,2021
+Croatia,HRV,2021,2,2021
+Cuba,CUB,2021,0,2021
+Cyprus,CYP,2021,3,2021
+Czechia,CZE,2021,2,2021
+Democratic Republic of Congo,COD,2021,1,2021
+Denmark,DNK,2021,3,2021
+Djibouti,DJI,2021,1,2021
+Dominican Republic,DOM,2021,2,2021
+East Timor,TLS,2021,2,2021
+Ecuador,ECU,2021,2,2021
+Egypt,EGY,2021,1,2021
+El Salvador,SLV,2021,1,2021
+Equatorial Guinea,GNQ,2021,1,2021
+Eritrea,ERI,2021,0,2021
+Estonia,EST,2021,3,2021
+Eswatini,SWZ,2021,0,2021
+Ethiopia,ETH,2021,1,2021
+Fiji,FJI,2021,1,2021
+Finland,FIN,2021,3,2021
+France,FRA,2021,3,2021
+Gabon,GAB,2021,1,2021
+Gambia,GMB,2021,2,2021
+Georgia,GEO,2021,2,2021
+Germany,DEU,2021,3,2021
+Ghana,GHA,2021,2,2021
+Greece,GRC,2021,3,2021
+Guatemala,GTM,2021,2,2021
+Guinea,GIN,2021,0,2021
+Guinea-Bissau,GNB,2021,2,2021
+Guyana,GUY,2021,2,2021
+Haiti,HTI,2021,0,2021
+Honduras,HND,2021,1,2021
+Hungary,HUN,2021,1,2021
+Iceland,ISL,2021,3,2021
+India,IND,2021,1,2021
+Indonesia,IDN,2021,2,2021
+Iran,IRN,2021,1,2021
+Iraq,IRQ,2021,1,2021
+Ireland,IRL,2021,3,2021
+Israel,ISR,2021,3,2021
+Italy,ITA,2021,3,2021
+Jamaica,JAM,2021,2,2021
+Japan,JPN,2021,3,2021
+Jordan,JOR,2021,0,2021
+Kazakhstan,KAZ,2021,1,2021
+Kenya,KEN,2021,1,2021
+Kosovo,OWID_KOS,2021,2,2021
+Kuwait,KWT,2021,1,2021
+Kyrgyzstan,KGZ,2021,1,2021
+Laos,LAO,2021,0,2021
+Latvia,LVA,2021,3,2021
+Lebanon,LBN,2021,1,2021
+Lesotho,LSO,2021,2,2021
+Liberia,LBR,2021,2,2021
+Libya,LBY,2021,0,2021
+Lithuania,LTU,2021,2,2021
+Luxembourg,LUX,2021,3,2021
+Madagascar,MDG,2021,1,2021
+Malawi,MWI,2021,2,2021
+Malaysia,MYS,2021,1,2021
+Maldives,MDV,2021,2,2021
+Mali,MLI,2021,0,2021
+Malta,MLT,2021,2,2021
+Mauritania,MRT,2021,1,2021
+Mauritius,MUS,2021,2,2021
+Mexico,MEX,2021,2,2021
+Moldova,MDA,2021,2,2021
+Mongolia,MNG,2021,2,2021
+Montenegro,MNE,2021,2,2021
+Morocco,MAR,2021,0,2021
+Mozambique,MOZ,2021,1,2021
+Myanmar,MMR,2021,0,2021
+Namibia,NAM,2021,2,2021
+Nepal,NPL,2021,2,2021
+Netherlands,NLD,2021,3,2021
+New Zealand,NZL,2021,3,2021
+Nicaragua,NIC,2021,1,2021
+Niger,NER,2021,2,2021
+Nigeria,NGA,2021,1,2021
+North Korea,PRK,2021,0,2021
+North Macedonia,MKD,2021,2,2021
+Norway,NOR,2021,3,2021
+Oman,OMN,2021,0,2021
+Pakistan,PAK,2021,1,2021
+Panama,PAN,2021,2,2021
+Papua New Guinea,PNG,2021,1,2021
+Paraguay,PRY,2021,2,2021
+Peru,PER,2021,2,2021
+Philippines,PHL,2021,1,2021
+Poland,POL,2021,2,2021
+Portugal,PRT,2021,3,2021
+Qatar,QAT,2021,0,2021
+Romania,ROU,2021,2,2021
+Russia,RUS,2021,1,2021
+Rwanda,RWA,2021,1,2021
+Sao Tome and Principe,STP,2021,2,2021
+Saudi Arabia,SAU,2021,0,2021
+Senegal,SEN,2021,2,2021
+Serbia,SRB,2021,1,2021
+Seychelles,SYC,2021,3,2021
+Sierra Leone,SLE,2021,2,2021
+Singapore,SGP,2021,1,2021
+Slovakia,SVK,2021,2,2021
+Slovenia,SVN,2021,2,2021
+Solomon Islands,SLB,2021,2,2021
+Somalia,SOM,2021,0,2021
+South Africa,ZAF,2021,2,2021
+South Korea,KOR,2021,3,2021
+South Sudan,SSD,2021,0,2021
+Spain,ESP,2021,3,2021
+Sri Lanka,LKA,2021,2,2021
+Sudan,SDN,2021,0,2021
+Suriname,SUR,2021,2,2021
+Sweden,SWE,2021,3,2021
+Switzerland,CHE,2021,3,2021
+Syria,SYR,2021,0,2021
+Taiwan,TWN,2021,3,2021
+Tajikistan,TJK,2021,1,2021
+Tanzania,TZA,2021,1,2021
+Thailand,THA,2021,0,2021
+Togo,TGO,2021,1,2021
+Trinidad and Tobago,TTO,2021,2,2021
+Tunisia,TUN,2021,2,2021
+Turkey,TUR,2021,1,2021
+Turkmenistan,TKM,2021,1,2021
+Uganda,UGA,2021,1,2021
+Ukraine,UKR,2021,2,2021
+United Arab Emirates,ARE,2021,0,2021
+United Kingdom,GBR,2021,3,2021
+United States,USA,2021,3,2021
+Uruguay,URY,2021,3,2021
+Uzbekistan,UZB,2021,1,2021
+Vanuatu,VUT,2021,2,2021
+Venezuela,VEN,2021,1,2021
+Vietnam,VNM,2021,0,2021
+Yemen,YEM,2021,0,2021
+Zambia,ZMB,2021,1,2021
+Zimbabwe,ZWE,2021,1,2021
