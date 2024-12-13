@@ -2,7 +2,7 @@
 title: "Natural Resource Wealth and Corruption"
 description: "A first stab at statistically analyzing the resource curse"
 author:
-  - name: Emma Mitchell
+  - name: Emma Bea Mitchell
     url: https://emmabeamitchell.github.io/
     affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB)
     affiliation-url: https://ucsb-meds.github.io/ 
