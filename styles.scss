@@ -14,12 +14,19 @@ $blush: #CA6680;
 $hookersgreen: #517664;
 $softorange: #E9B44C;
 $softred: #EF6F6C;
+$tearosered: #E9C3C9;
+$teagreen: #D3FAC7;
+$mutedgreen: #9eb5a8;
+$timberwolf: #DDD8D5;
 
 // Quarto Sass Variables
-$body-bg:$dun;
+$body-bg:$timberwolf;
 $navbar-bg:$blush;
 $navbar-fg:$englishviolet;
 $link-color:$englishviolet;
+$code-block-bg:$mutedgreen;
+$footer-bg: $blush;
+
 
 /*-- scss:rules --*/
 
@@ -36,7 +43,6 @@ h1, h2 {
 .title{
   color: $hookersgreen;
 }
-
 
 
 .center-text{
