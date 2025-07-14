@@ -4,7 +4,7 @@ image: potential_replacement_headshot_crop.jpg
 about:
   template: jolla
   image-shape: rounded
-  image-width: 16em
+  image-width: 18em
   links: 
     - text: LinkedIn
       icon: linkedin
@@ -21,6 +21,6 @@ about:
 
 ---
 
-I'm an Environmental Data Science Master student at the Bren School of Environmental Science and Management at UCSB. I graduated from the University of Redlands in 2022, where I majored in Environmental Science, Policy and Justice. I am following my Environmental Justice passion by learning to utilize the power of computer programming to communicate and help repair the harmful impacts of dangerous environmental decisions on people and the environment. 
+I'm a recent graduate with a master's in Environmental Data Science at the Bren School of Environmental Science and Management at UCSB. I graduated from the University of Redlands in 2022, where I majored in Environmental Science, Policy and Justice. I am following my Environmental Justice passion by learning to utilize the power of computer programming to communicate and help repair the harmful impacts of dangerous environmental decisions on people and the environment. 
 
 

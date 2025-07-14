@@ -84,9 +84,9 @@ library(spdep)
 #| quiet: true
 
 # read in data
-corruption <- read_csv(here("Natural_resource_corruption" ,"data", "2021_corruption.csv"))
+corruption <- read_csv(here("posts", "Natural_resource_corruption" ,"data", "2021_corruption.csv"))
 
-natural_resources <- read_csv(here("Natural_resource_corruption" ,"data", "natural_resources.csv"))
+natural_resources <- read_csv(here("posts", "Natural_resource_corruption" ,"data", "natural_resources.csv"))
 ```
 
 ### Clean up the data
@@ -215,7 +215,7 @@ Herre, B. (2021, December 2). The “Regimes of the World” data: how do resear
 #| quiet: true
 
 # Read in data
-regime <- read_csv(here("Natural_resource_corruption", "data", "political-regime.csv"))
+regime <- read_csv(here("posts", "Natural_resource_corruption", "data", "political-regime.csv"))
 ```
 
 ```{r}

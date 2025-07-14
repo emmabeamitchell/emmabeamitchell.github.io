@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Emma Bea Mitchell - About Me</title>
+<title>About Me – Emma Bea Mitchell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -104,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -140,11 +140,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="who-am-i" class="level2">
 <h2 class="anchored" data-anchor-id="who-am-i"><i class="fa-solid fa-id-card" title="ID card" aria-label="id-card"></i> Who am I?</h2>
-<p>I’m a full time Master’s student in Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. In undergrad, I majored in Environmental Science, Policy, and Justice at the Johnston Center for Integrative Studies at the University of Redlands. I created my personalized major because I loved environmental studies and social activism. I took classes on anything from Environmental Ethics to History of Disability to Biodiversity to Immigration Politics and Policy. I loved having the freedom to choose what I wanted to learn and pursue. In undergrad I also studied abroad in Copenhagen where I had the chance to study ice cores and glacial dating, as well as learn about the geopolitics of Denmark. My passion and excitement about environmental policy and environmental justice drove me to go back to school. I truly believe that data science is needed and connected to all disciplines, and in learning data science skills I hope to begin to do my part to rectify the damage we have done to our Earth and the people living there.</p>
+<p>I’m a recent graduate with a Masters in Environmental Data Science at the Bren School of Environmental Science and Management at UC Santa Barbara. In undergrad, I majored in Environmental Science, Policy, and Justice at the Johnston Center for Integrative Studies at the University of Redlands. I created my personalized major because I loved environmental studies and social activism. I took classes on anything from Environmental Ethics to History of Disability to Biodiversity to Immigration Politics and Policy. I loved having the freedom to choose what I wanted to learn and pursue. In undergrad I also studied abroad in Copenhagen where I had the chance to study ice cores and glacial dating, as well as learn about the geopolitics of Denmark. My passion and excitement about environmental policy and environmental justice drove me to go back to school. I truly believe that data science is needed and connected to all disciplines, and in learning data science skills I hope to begin to do my part to rectify the damage we have done to our Earth and the people living there.</p>
 </section>
 <section id="but-who-am-i-really" class="level2">
 <h2 class="anchored" data-anchor-id="but-who-am-i-really"><i class="fa-solid fa-book-open-reader" title="Icon of person reading a book" aria-label="book-open-reader"></i> But who am I really?</h2>
-<p>Outside of my love for the environment and data science, my main hobby is reading ( you know you’re a nerd when your two passions are coding and reading 🤓). Apart from staring at a screen or a book, I love to kayak, swim, paddle board, and hike. I am originally from Seattle, WA where I was surrounded by the vast nature of the Cascades, the Olympics, and the Puget Sound. I grew up going to summer camps on islands, raising salmon in school, and cannon-balling off diving boards in my neighborhood lake. In 2024 I moved to Santa Barbara to pursue my Master’s degree, where (thank goodness) I am still surrounded by mountains and ocean and my home is full of books.</p>
+<p>Outside of my love for the environment and data science, my main hobby is reading (you know you’re a nerd when your two passions are coding and reading 🤓). Apart from staring at a screen or a book, I love to kayak, swim, paddle board, and hike. I am originally from Seattle, WA where I was surrounded by the vast nature of the Cascades, the Olympics, and the Puget Sound. I grew up going to summer camps on islands, raising salmon in school, and cannon-balling off diving boards in my neighborhood lake. In 2024 I moved to Santa Barbara to pursue my Master’s degree, where (thank goodness) I am still surrounded by mountains and ocean and my home is full of books.</p>
 
 
 </section>
@@ -185,18 +185,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -228,7 +217,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -236,7 +247,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

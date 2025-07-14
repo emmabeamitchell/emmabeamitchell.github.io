@@ -6,3 +6,7 @@
 .quarto
 
 /.quarto/
+/data
+.data
+*csv
+**/data/
