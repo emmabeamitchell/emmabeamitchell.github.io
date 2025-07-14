@@ -10,6 +10,7 @@ date: 01-10-2025
 categories: [Geospatial, R, MEDS] # self-defined categories
 url: https://emmabeamitchell.github.io/posts/EJ_biodiversity/ 
 image: LA_park.webp
+freeze: true
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 Redlining began during the Great Depression, when FDR introduced the New Deal, a program designed to help Americans suffering financially. Although many of the reforms in the New Deal were successful, others were extremely discriminatory. During this time, the Home Owners Loan Corporation (HOLC) was created. This agency was designed to help with the housing crisis and prevent foreclosures through refinancing. This involved lenders and real estate agents grading the investment risks of neighborhoods. Unfortunately, these grades were heavily based on racial and socioeconomic makeup. 

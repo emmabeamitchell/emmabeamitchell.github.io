@@ -10,6 +10,7 @@ date: 12-12-2024
 categories: [Stats, R, MEDS] # self-defined categories
 url: https://emmabeamitchell.github.io/posts/natural_resource_corruption/ 
 image: nat_pic.jpg
+freeze: true
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 Corruption is an issue in countries across the world. Government structures are complicated, intertwined, and often run behind closed doors. This makes it extremely difficult to solve. What are the main influences on a country's corruption level? Is it even quantifiable? I was motivated by these questions to take a stab at a small piece of the corruption puzzle.

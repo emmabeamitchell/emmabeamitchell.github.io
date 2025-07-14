@@ -1,12 +1,21 @@
+# Ignore Quarto system files
+.quarto/
+
+# Ignore RStudio junk
 .Rproj.user
 .Rhistory
-.Rdata
-.httr-oauth
+.RData
 .DS_Store
-.quarto
+.httr-oauth
+
+# Ignore all CSV files (if you want)
+*.csv
+**/*.csv
+
+# Ignore all folders named 'data', no matter where they are
+**/data/
+
+# Optional: ignore rendered docs (if you use gh-pages instead)
+# /docs/
 
 /.quarto/
-/data
-.data
-*csv
-**/data/

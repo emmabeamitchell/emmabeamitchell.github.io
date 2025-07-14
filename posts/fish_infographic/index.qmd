@@ -10,6 +10,7 @@ date: 03-16-2025
 categories: [R, MEDS] # self-defined categories
 url: https://emmabeamitchell.github.io/posts/sanfrancisco_estuary/ 
 image: estuary-pic.webp
+freeze: true 
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
