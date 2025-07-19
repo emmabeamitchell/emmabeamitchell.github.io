@@ -205,10 +205,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Corruption is an issue in countries across the world. Government structures are complicated, intertwined, and often run behind closed doors. This makes it extremely difficult to solve. What are the main influences on a country’s corruption level? Is it even quantifiable? I was motivated by these questions to take a stab at a small piece of the corruption puzzle.</p>
-<p>In this post we attempt to answer the question <strong>does the percent of GDP from natural resources affect countries’ corruption levels?</strong></p>
+<p>Corruption is an issue in countries across the world. Government structures are complicated, intertwined, and often run behind closed doors. This makes corruption as a whole extremely difficult to solve. What are the main influences on a country’s corruption level? Is it even quantifiable? I was motivated by these questions to take a stab at looking at a small piece of the corruption puzzle.</p>
+<p>In this post we attempt to answer the question <strong>Does the percent of GDP from natural resources affect countries’ corruption levels?</strong></p>
 <p>My theory is that having natural resources that provide a large revenue source for a country could potentially invite corruption. Public officials may bribe gas, oil, or logging companies for a cut in the profit. Those companies may also bribe or attempt to coerce the government into larger sales or more land. Public officials may also prioritize company profits over public welfare, which has the potential to have large impacts on policy decisions that affect citizens.</p>
-<p>The theory that I am describing is a very simplified version of a well-studied and highly debated issue of <em>the resource curse</em>. Essentially natural resource wealth in countries (specifically developing countries) can lead to perverse effects on economic, social, and political well being. Case studies around the world have proved this to be true (although there is also case study evidence of the resource curse being “illusory”).</p>
+<p>The theory that I am describing is a very simplified version of a well-studied and highly debated issue called <em>the resource curse</em>. Essentially, natural resource wealth in countries (specifically developing countries) can lead to perverse effects on economic, social, and political well being. Case studies around the world have proved this to be true (although there is also case study evidence of the resource curse being “illusory”).</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 100%">
@@ -226,29 +226,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Everyone wants to solve corruption, but it’s a lot easier said than done. Corruption is a complicated issue with far more influences than most researchers are able to analyze in years of study, and certainly more than I can analyze in this short post.</p>
 <p>My analysis plan is to create visualizations and linear models that can help us to examine the possibility of a significant correlation between the percent of GDP in a country that comes from natural resources versus our corruption perception index.</p>
+<p>My plan is as follows:</p>
 <ol type="1">
-<li>read in data and clean</li>
-<li>make preliminary plot</li>
-<li>run a linear model</li>
-<li>graph the best fit line</li>
-<li>analyze results</li>
+<li>Read in and clean data</li>
+<li>Make preliminary plot</li>
+<li>Run linear model</li>
+<li>Graph best fit line</li>
+<li>Analyze results</li>
 </ol>
 <section id="sources" class="level2">
 <h2 class="anchored" data-anchor-id="sources">Sources</h2>
 <section id="corruption-perception-index" class="level3">
 <h3 class="anchored" data-anchor-id="corruption-perception-index">Corruption Perception Index</h3>
 <p><img src="https://images.transparencycdn.org/images/CPI2021_Map_EN_2022-01-24-142835_wbln.jpg" alt="Corruption Perception Index 2021 Map" width="500"></p>
-<p>Our data comes from two different sources. The first source is for our corruption level data. We used a dataset from <em>Transparency International</em>, an organization that works to fight corruption worldwide. The organization has many facets, including a think tank, a UNESCO consultant, and is involved in the UN.</p>
-<p>They created a corruption perceptions index, which measures levels of corruption in 180 countries around the world from 0 (highly corrupt) to 100 (very clean). Transparency International takes data from 13 sources, such as banks, think tanks, and research advisory firms around the world. Each of these organizations ask leading experts in their field multiple questions that can be used to gage corruption levels. Some sources only cover specific regions or continents, while others cover the majority of the world. Transparency International then takes the information and standardizes it on a scale of zero to one hundred,“this standardisation is done by subtracting the mean of each source in the baseline year from each country score and then dividing by the standard deviation of that source in the baseline year [and]… …transformed to the CPI scale by multiplying with the value of the CPI standard deviation in 2012 (20) and adding the mean of CPI in 2012 (45), so that the data set fits the CPI’s 0-100 scale” (CPI report short methodology 2021). They then calculate the average for each country to find their published score.</p>
+<p>Our data comes from two different sources. The first is for our corruption level data. We used a dataset from <em>Transparency International</em>, an organization that works to fight corruption worldwide. The organization has many facets, including acting as a think tank, a UNESCO consultant, and is involved in the UN.</p>
+<p>They created a corruption perceptions index, which measures levels of corruption in 180 countries around the world from 0 (highly corrupt) to 100 (very clean). Transparency International takes data from 13 sources, such as banks, think tanks, and research advisory firms around the world. Each of these organizations ask leading experts in their field multiple questions that can be used to gauge corruption levels. Some sources only cover specific regions or continents, while others cover the majority of the world. Transparency International then takes the information and standardizes it on a scale of zero to one hundred,“this standardization is done by subtracting the mean of each source in the baseline year from each country score and then dividing by the standard deviation of that source in the baseline year [and]… …transformed to the CPI scale by multiplying with the value of the CPI standard deviation in 2012 (20) and adding the mean of CPI in 2012 (45), so that the data set fits the CPI’s 0-100 scale” (CPI report short methodology 2021). They then calculate the average for each country to find their published score.</p>
 <section id="limitations-of-the-data" class="level4">
 <h4 class="anchored" data-anchor-id="limitations-of-the-data">Limitations of the data</h4>
-<p>The data itself, as well as the way I use it comes with some caveats. Firstly, Transparency International uses varying organizations to get these scores, which in turn use varying methods to get their scores. Although the scores are then standardized, it is still not a completely equal comparison for every single country. In my statistical analysis, I use this corruption <strong>perception</strong> index as a true corruption index for each country. There are clearly limitations to what anyone can truly know about the country in their country, and this index simply measures perceptions for that very reason, but for the purposes of my calculations I treat these numbers as true and fair values. In order to simplify my analysis, I am also not including the standard errors for these values, which could potentially oversimplify the results of the index.</p>
+<p>The data itself, as well as the way I use it, comes with some caveats. Firstly, Transparency International uses varying organizations to get these scores, which in turn use varying methods. Although the scores are then standardized, it is still not a completely equal comparison for every single country. In my statistical analysis, I use this corruption <strong>perception</strong> index as a true corruption index for each country. There are clearly limitations to what anyone can truly know about the corruption in their country, and this index simply measures perceptions for that very reason. For the purposes of my calculations, I treat these numbers as true and fair values. In order to simplify my analysis, I am also not including the standard errors for these values, which could potentially oversimplify the results of the index.</p>
 <p>Transparency International. (2021). 2021 Corruptions Perceptions Index. Transparency.org. https://www.transparency.org/en/cpi/2021.</p>
 </section>
 </section>
 <section id="percent-of-gdp-from-natural-resources" class="level3">
 <h3 class="anchored" data-anchor-id="percent-of-gdp-from-natural-resources">Percent of GDP from Natural Resources</h3>
-<p>The natural resource data comes from the World Bank Group, an organization with 189 member countries, working to give funds to low income countries. Their site also has a catalog of open data about economic development worldwide. The dataset we used was the “World Development Indicators: Contribution of natural resources to gross domestic product” table. I have used data from 2021 in order to have consistency in the year across the board.</p>
+<p>The natural resource data comes from the World Bank Group, an organization with 189 member countries, working to give funds to low income countries. Their site also contains a catalog of open data about economic development worldwide. The dataset we used was the “World Development Indicators: Contribution of natural resources to gross domestic product” table. I have used data from 2021 in order to have consistency in year across the board.</p>
 <section id="limitations-of-the-data-1" class="level4">
 <h4 class="anchored" data-anchor-id="limitations-of-the-data-1">Limitations of the data</h4>
 <p>Although this data is open source, we have no information about how these numbers were acquired. We trust at face value that this dataset is correct.</p>
@@ -322,10 +323,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>first_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(corrupt_resource_select, <span class="fu">aes</span>(<span class="at">x=</span>total_natural_resources_rents_percent_of_gdp, <span class="at">y =</span> cpi_score_2021)) <span class="sc">+</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"percent of GDP from natural resources"</span>) <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"corruption perception index"</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's affect on countries' corruption levels"</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Percent of GDP from Natural Resources"</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Corruption Perception Index"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's Affect on Countries' Corruption Levels"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(first_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -389,7 +390,7 @@ rents percent of gdp</td>
 
 </div>
 </div>
-<p>There are a few numbers here that are of interest to us. First let’s look at the intercept and the total_natural_resources_rents_percent_of_gdp (the slope). According to our model, if our hypothetical country had no GDP resulting from natural resources, then the corruption level would be at 48. We could maybe buy this if we hadn’t looked at the graph, but when we look at our data points visually it looks like our intercept is really just halfway in between our huge cluster of points around zero that seem to be evenly dispersed on the y axis. When looking at the slope we can also see that it’s very small. Each percentage point increase in GDP results in a less than 1 index level decrease.</p>
+<p>There are a few numbers here that are of interest to us. First let’s look at the intercept and the ‘total_natural_resources_rents_percent_of_gdp’ (the slope). According to our model, if our hypothetical country had no GDP resulting from natural resources, the corruption level would be at 48. We could maybe buy this if we hadn’t looked at the graph, but when we look at our data points visually it looks like our intercept is really just halfway in between our huge cluster of points around zero that seem to be evenly dispersed on the y axis. When looking at the slope we can also see that it’s very small. Each percentage point increase in GDP results in a less than 1 index level decrease.</p>
 <p>The p-values for both our intercept and slope are very small. Our intercept is less than .001 (essentially zero for our purposes) and our slope has a p-value of .000106, also a very small number. Both are far below .05, the number needed for a value to be statistically significant. So if these values are both statistically significant, why do I still not trust that it’s meaningful?</p>
 <p>Let’s look at adjusted R squared value. It’s about 0.07. R squared is always a value from 0 to 1, where 0 means that the model explains essentially zero percent of the change in y, and 1 means that the model is the perfect fit and the variable explains 100 percent of the change in y. Our value is less than .1, essentially meaning that the percent of GDP from natural resources explains just over 7 percent of the corruption levels in countries. So our model is statistically significant but explains very little of corruption levels.</p>
 <p>This makes sense when we look at our graph with our best fit line. If we squint at the graph, we can <em>maybe</em> see a correlation, but it’s certainly a stretch. The graph, along with our linear model summary, makes us think that there is definitely omitted variable bias here.</p>
@@ -398,10 +399,10 @@ rents percent of gdp</td>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>smooth_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(corrupt_resource_select, <span class="fu">aes</span>(<span class="at">x=</span>total_natural_resources_rents_percent_of_gdp, <span class="at">y =</span> cpi_score_2021)) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"percent of GDP from natural resources"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"corruption perception index"</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's affect on countries' corruption levels"</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Percent of GDP From Natural Resources"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Corruption Perception Index"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's Affect on Countries' Corruption Levels"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> lm)</span>
@@ -418,13 +419,13 @@ rents percent of gdp</td>
 </section>
 <section id="lets-regroup-and-think-about-what-other-variables-could-be-contributing-to-corruption-levels." class="level3">
 <h3 class="anchored" data-anchor-id="lets-regroup-and-think-about-what-other-variables-could-be-contributing-to-corruption-levels.">Let’s regroup and think about what other variables could be contributing to corruption levels.</h3>
-<p>My new theory is that the type of government could be a major contributing factor in corruption levels. It’s possible that this is an interactive model. My theory is that democratic countries will have a much less steep negative slope because the percent of GDP from natural resources would have less of an effect on corruption. Elections keep officials much more accountable. On the other hand, autocracies might have a steeper negative slope, as more money coming from a country’s natural resource could lead to an increase in corruption as there is more money or resources that could be exploited. Let’s load in another dataset that has information on political regimes worldwide and test my theory.</p>
-<p>My new analysis plan is to add political regime type to my model as an interaction. We can then graph and analyze the data to see if there’s a correlation now that political regime type is added.</p>
+<p>My new theory is that the type of government could be a major contributing factor in corruption levels. It’s possible that this is an interactive model. My theory is that democratic countries will have a much less steep negative slope because the percent of GDP from natural resources would have less of an effect on corruption. Elections keep officials much more accountable. On the other hand, autocracies might have a steeper negative slope, as more money coming from a country’s natural resources could lead to an increase in corruption through exploitation. Let’s load in another dataset that has information on political regimes worldwide and test my theory.</p>
+<p>My new analysis plan is to add political regime types to my model as an interaction. We can then graph and analyze the data to see if there’s a stronger correlation now that political regime type has been added.</p>
 <ol type="1">
-<li>read in data and clean</li>
-<li>make interactive plot</li>
-<li>run a linear model</li>
-<li>analyze results</li>
+<li>Read in data and clean</li>
+<li>Make interactive plot</li>
+<li>Run a linear model</li>
+<li>Analyze results</li>
 </ol>
 <section id="about-this-data" class="level4">
 <h4 class="anchored" data-anchor-id="about-this-data">About this data</h4>
@@ -437,7 +438,7 @@ rents percent of gdp</td>
 <li>3 represents liberal democracies, where “citizens have further individual and minority rights, are equal before the law, and the actions of the executive are constrained by the legislative and the courts”</li>
 </ul>
 <p>(all descriptions come from the dataset’s metadata) For clarity, I clean the data to change the numbers to the regime type</p>
-<p>The data comes from the Regimes of the World (RoW) data published by the Varieties of Democracy (V-Dem) project. Political scientists Anna Lührmann, Marcus Tannenberg, and Staffan Lindberg compiled assessments from anonymous experts in academia, media, or civil society to gage democracy levels.</p>
+<p>The data comes from the Regimes of the World (RoW) dataset, published by the Varieties of Democracy (V-Dem) project. Political scientists Anna Lührmann, Marcus Tannenberg, and Staffan Lindberg compiled assessments from anonymous experts in academia, media, or civil society to gauge democracy levels.</p>
 </section>
 <section id="limitations-to-our-data" class="level4">
 <h4 class="anchored" data-anchor-id="limitations-to-our-data">Limitations to our data</h4>
@@ -485,15 +486,15 @@ rents percent of gdp</td>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>regime_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(corrupt_nat_dem_select, <span class="fu">aes</span>(<span class="at">x =</span> total_natural_resources_rents_percent_of_gdp, <span class="at">y =</span> cpi_score_2021, <span class="at">color =</span> political_regime)) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">xlab</span>(<span class="st">"percent of GDP from natural resources"</span>) <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"corruption perception index"</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's affect on countries' corruption levels"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">xlab</span>(<span class="st">"Percent of GDP From Natural Resources"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Corruption Perception Index"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Natural Resource's Affect on Countries' Corruption Levels"</span>,</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Political regime"</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>() <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> lm) <span class="sc">+</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"closed autocracies"</span>, <span class="st">"electorial autocracies"</span>, <span class="st">"electoral democracies"</span>, <span class="st">"liberal democracies"</span>))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Closed Autocracies"</span>, <span class="st">"Electorial Autocracies"</span>, <span class="st">"Electoral Democracies"</span>, <span class="st">"Liberal Democracies"</span>))</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(regime_plot)</span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Removed 27 rows containing non-finite outside the scale range</span></span>
@@ -513,9 +514,12 @@ rents percent of gdp</td>
 <p>We can see that the liberal democracies line is actually positive, which means that the as natural resource profit goes up, they have less and less corruption. Interestingly, electoral democracies and electoral autocracies seem to have very similar negative slopes. The closed autocracies seem to have a mostly flat slope that it very slightly positive.</p>
 <p>These results are pretty unexpected. Let’s take a look at the linear model summary to check out our numbers.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(total_natural_resources_rents_percent_of_gdp <span class="sc">~</span> cpi_score_2021 <span class="sc">+</span> political_regime <span class="sc">+</span>cpi_score_2021<span class="sc">:</span>political_regime, <span class="at">data =</span> corrupt_nat_dem_select)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
@@ -687,15 +691,15 @@ political regime<br>
 </div>
 </div>
 </div>
-<p>Unfortunately, we had to omit a good amount of countries because all of our datasets did not match. Despite this, we can still see a pattern of autocorrelation in our data. We can see in Northern Europe and in the Middle East, there is almost a gradient of colors because of autocorrelation. Countries close to red countries seem to be closer to red themselves, while countries close to blue countries seem to be closer to blue themselves. Similar colors are also clumped together in South American and Africa. This tells us that one country’s corruption levels are affecting others around it.</p>
+<p>Unfortunately, we had to omit a good amount of countries because all of our datasets did not match. Despite this, we can still see a pattern of autocorrelation in our data. We can see in Northern Europe and in the Middle East, there is almost a gradient of colors because of autocorrelation. Countries close to red countries seem to be closer to red themselves, while countries close to blue countries seem to be closer to blue themselves. Similar colors are also clumped together in South America and Africa. This tells us that one country’s corruption levels are affecting others around it.</p>
 </section>
 </section>
 <section id="summarizing-our-results" class="level2">
 <h2 class="anchored" data-anchor-id="summarizing-our-results">Summarizing our results</h2>
-<p>Our results are overall inconclusive. Our first linear model just looked at the percent of GDP from natural resources. There was no an obvious correlation from just looking at the data points on the graph, but our line of best fit revealed a negative slope, revealing that as the percent of GDP goes up, the corruption also goes up (a lower index number = more corruption). Although these results were statistically significant, the adjusted R squared value revealed that it only explained about nine percent of the corruption levels in countries around the world.</p>
+<p>Our results are overall inconclusive. Our first linear model just looked at the percent of GDP from natural resources. There was no an obvious correlation from just looking at the data points on the graph, but our line of best fit revealed a negative slope, revealing that as the percent of GDP goes up, the corruption also goes up (a lower index number = more corruption). Although these results were statistically significant, the adjusted R squared value revealed that it only explained about seven percent of the corruption levels in countries around the world.</p>
 <p>My solution to the low R squared value was to add another variable, as it was quite likely we had omitted variable bias. I decided to add political regime type as our additional variable. I logically assumed that the regime type would have differing affects on the relationship. When I added in political regimes however, I saw that my results were no longer statistically significant.</p>
-<p>In an effort to explore what else could be contributing to corruption levels, I decided to try the Moran’s I test, which allows us to see if there is autocorrelation in our data. The answer was yes, there appears to be some. That means that countries’ corruption levels are being affected by the levels around it. Maybe stability in the surrounding countries bring stability into their neighbors’ countries. Maybe corruption spills over across borders. If we think about natural resources as well, they don’t follow political lines. Natural resources will probably be similar in neighboring countries. All of these factors lead to a need to examine further and account for this autocorrelation in our analysis.</p>
-<p>If I had more time I would have continued exploring more variables and use our results from Moran’s I to account for our autocorrelation issue. Developed versus developing country, overall GDP amount, and economic systems would all be interesting to analyze in relation to corruption and natural resources as well. I am also skeptical that a linear model is truly the correct model to be using in this situation, as corruption is very complex and probably not a completely linear issue.</p>
+<p>In an effort to explore what else could be contributing to corruption levels, I decided to try the Moran’s I test, which allows us to see if there is autocorrelation in our data. The answer was yes, there appears to be some. That means that countries’ corruption levels are being affected by the levels around it. Maybe stability in the surrounding countries brings stability into their neighboring countries. Maybe corruption spills over across borders. If we think about natural resources as well, they don’t follow political lines. Natural resources will probably be similar in neighboring countries. All of these factors lead to a need to examine further and account for this autocorrelation in our analysis.</p>
+<p>If I had more time I would have continued exploring more variables and used our results from Moran’s I to account for our autocorrelation issue. Developed versus developing country, overall GDP amount, and economic systems would all be interesting to analyze in relation to corruption and natural resources as well. I am also skeptical that a linear model is truly the correct model to be using in this situation, as corruption is very complex and probably not a completely linear issue.</p>
 <p>My next steps would be to use my Moran’s I calculations to go back and reanalyze my data, as well as add in additional factors that I believe could be relevant.</p>
 <p>Full acknowledgements:</p>
 <table class="caption-top table">
